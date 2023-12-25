@@ -29,8 +29,8 @@ import okhttp3.WebSocketListener;
 public class FayeClient extends WebSocketListener {
 
   private static final String BAYEUX_VERSION = "1.0";
-  private static final int DEFAULT_TIMEOUT = 60; // seconds
-  private static final int DEFAULT_INTERVAL = 0; // seconds
+  private static final int DEFAULT_TIMEOUT = 10; // seconds
+  private static final int DEFAULT_INTERVAL = 1; // seconds
 
   private final String baseURL;
   private final int timeout;
