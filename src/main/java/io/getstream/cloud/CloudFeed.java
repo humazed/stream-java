@@ -20,6 +20,8 @@ import io.getstream.core.utils.Streams;
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 import java8.util.J8Arrays;
 import java8.util.concurrent.CompletableFuture;
 import java8.util.concurrent.CompletionException;
@@ -52,7 +54,7 @@ public class CloudFeed {
   }
 
   public final CompletableFuture<ChannelSubscription> subscribe(
-      RealtimeMessageCallback messageCallback) {
+      RealtimeMessageCallback messageCallback) throws ExecutionException, InterruptedException {
     checkNotNull(subscriber, "A subscriber must be provided in order to start listening to a feed");
     return subscriber.subscribe(id, messageCallback);
   }
