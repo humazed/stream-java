@@ -4,7 +4,9 @@ import io.getstream.core.faye.subscription.ChannelSubscription;
 import io.getstream.core.models.FeedID;
 import java8.util.concurrent.CompletableFuture;
 
+import java.util.concurrent.ExecutionException;
+
 public interface FeedSubscriber {
   CompletableFuture<ChannelSubscription> subscribe(
-      FeedID feedID, RealtimeMessageCallback messageCallback);
+      FeedID feedID, RealtimeMessageCallback messageCallback) throws ExecutionException, InterruptedException;
 }

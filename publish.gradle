@@ -1,6 +1,6 @@
 //apply plugin: 'maven-publish'
 //apply plugin: 'signing'
-//
+
 //// Create variables with empty default values
 //ext["ossrhUsername"] = ''
 //ext["ossrhPassword"] = ''
@@ -24,7 +24,7 @@
 //    ext["signing.secretKeyRingFile"] = System.getenv('SIGNING_SECRET_KEY_RING_FILE')
 //    ext["sonatypeStagingProfileId"] = System.getenv('SONATYPE_STAGING_PROFILE_ID')
 //}
-//
+
 //nexusPublishing {
 //    repositories {
 //        sonatype {
@@ -34,21 +34,21 @@
 //        }
 //    }
 //}
-//
-//task javadocJar(type: Jar) {
-//    archiveClassifier = 'javadoc'
-//    from javadoc
-//}
-//
-//task sourcesJar(type: Jar) {
-//    archiveClassifier = 'sources'
-//    from sourceSets.main.allSource
-//}
-//
-//artifacts {
-//    archives javadocJar, sourcesJar
-//}
-//
+
+task javadocJar(type: Jar) {
+    archiveClassifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    archiveClassifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
 //afterEvaluate {
 //    publishing {
 //        publications {
@@ -87,7 +87,7 @@
 //        }
 //    }
 //}
-//
+
 //signing {
 //    sign publishing.publications
 //}
