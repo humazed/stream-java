@@ -3,6 +3,8 @@ package io.getstream.core.faye.subscription;
 import io.getstream.core.faye.Message;
 import io.getstream.core.faye.client.FayeClient;
 
+import java.io.IOException;
+
 public class ChannelSubscription {
   private final FayeClient client;
   private final String channel;
@@ -35,7 +37,7 @@ public class ChannelSubscription {
     return this;
   }
 
-  public void call(Message message) {
+  public void call(Message message) throws IOException {
     if (channelDataCallback != null) channelDataCallback.onData(message.getData());
     if (withChannel != null) withChannel.onData(message.getChannel(), message.getData());
   }
