@@ -249,6 +249,7 @@ public final class CloudClient {
       feedSubscriptions.put("/" + notificationChannel, subscription);
       subscriberCompletion.complete(channelSubscription);
     } catch (Exception e) {
+      e.printStackTrace();
       subscriberCompletion.completeExceptionally(e);
     }
     return subscriberCompletion;
