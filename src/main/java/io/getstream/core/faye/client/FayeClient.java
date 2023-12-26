@@ -127,6 +127,7 @@ public class FayeClient extends WebSocketListener {
     // 'Error occurred', error, stacktrace);
     closeWebSocket();
     initWebSocket();
+    cycleConnection();
   }
 
   private boolean manuallyClosed = false;
