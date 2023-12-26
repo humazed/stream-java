@@ -143,14 +143,18 @@ public class FayeClient extends WebSocketListener {
 
   private void scheduleTimerTask(Callback callback, long duration) {
     if (timer == null) timer = new Timer();
-    timer.schedule(
-        new TimerTask() {
-          @Override
-          public void run() {
-            callback.call();
-          }
-        },
-        duration);
+    try {
+      timer.schedule(
+          new TimerTask() {
+            @Override
+            public void run() {
+              callback.call();
+            }
+          },
+          duration);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
   }
 
   public void handshake() {
