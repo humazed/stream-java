@@ -20,6 +20,8 @@ import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -76,7 +78,9 @@ public class FayeClient extends WebSocketListener {
   }
 
   private WebSocket webSocket;
-  private final OkHttpClient httpClient = new OkHttpClient();
+  private final OkHttpClient httpClient = new OkHttpClient.Builder()
+          .pingInterval(2, TimeUnit.SECONDS)
+          .build();
 
   private Timer timer = new Timer();
 
